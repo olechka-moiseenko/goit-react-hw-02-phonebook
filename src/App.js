@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { v4 as uuidv4 } from "uuid";
+import ContactForm from "./componenets/ContactForm/ContactForm";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    contacts: [],
+    filter: "",
+  };
+
+  formSubmitHandler = ({ name, number }) => {
+    const contact = {
+      name,
+      number,
+      id: uuidv4(),
+    };
+    this.state.contacts.find((savedContact) => savedContact.name === name)
+      ? alert(`${name} is already in contacts`)
+      : this.setState((prevState) => ({
+          contacts: [...prevState.contacts, contact],
+        }));
+  };
+  render() {
+    return (
+      <div>
+        <h1>Phonebook</h1>
+        <ContactForm handleSubmit={this.formSubmitHandler} />
+        <h2>Contacts</h2>
+      </div>
+    );
+  }
 }
 
 export default App;

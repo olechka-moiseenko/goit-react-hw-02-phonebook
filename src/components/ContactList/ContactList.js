@@ -1,4 +1,4 @@
-import ContactListItem from "components/ContactListItem/ContactListItem";
+import ContactListItem from "../ContactListItem/ContactListItem.js";
 
 export default function ContactList({ contacts, handleDelete }) {
   return (

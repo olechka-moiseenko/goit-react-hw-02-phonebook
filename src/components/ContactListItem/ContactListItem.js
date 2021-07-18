@@ -1,4 +1,4 @@
-import s from "ContactListItem.module.css";
+import s from "./ContactListItem.module.css";
 
 export default function ContactListItem({ name, number, deleteContact }) {
   return (

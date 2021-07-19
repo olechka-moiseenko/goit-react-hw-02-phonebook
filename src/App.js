@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import ContactForm from "./components/ContactForm/ContactForm.js";
 import ContactList from "./components/ContactList/ContactList.js";
 import SearchContact from "./components/SearchContact/SearchContact.js";
-
+import s from "./App.module.css";
 class App extends Component {
   state = {
     contacts: [
@@ -53,8 +53,8 @@ class App extends Component {
     const filteredContacts = this.getFilteredContacts();
 
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <div className={s.container}>
+        <h1 className={s.title}>Phonebook</h1>
         <ContactForm handleSubmit={this.formSubmitHandler} />
 
         <h2>Contacts</h2>
